@@ -13,6 +13,7 @@
 		B7C2681A1E83705500741873 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7C268181E83705500741873 /* Main.storyboard */; };
 		B7C2681C1E83705500741873 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7C2681B1E83705500741873 /* Assets.xcassets */; };
 		B7C2681F1E83705500741873 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7C2681D1E83705500741873 /* LaunchScreen.storyboard */; };
+		B7DABC791E92DD6300D7387C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DABC781E92DD6300D7387C /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B7C2681B1E83705500741873 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7C2681E1E83705500741873 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7C268201E83705500741873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7DABC781E92DD6300D7387C /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				B7C268141E83705500741873 /* GraphViewController.swift */,
 				B7C268161E83705500741873 /* SettingsViewController.swift */,
 				B7C268181E83705500741873 /* Main.storyboard */,
+				B7DABC781E92DD6300D7387C /* AccountViewController.swift */,
 				B7C2681B1E83705500741873 /* Assets.xcassets */,
 				B7C2681D1E83705500741873 /* LaunchScreen.storyboard */,
 				B7C268201E83705500741873 /* Info.plist */,
@@ -143,6 +146,7 @@
 			files = (
 				B7C268171E83705500741873 /* SettingsViewController.swift in Sources */,
 				B7C268131E83705500741873 /* AppDelegate.swift in Sources */,
+				B7DABC791E92DD6300D7387C /* AccountViewController.swift in Sources */,
 				B7C268151E83705500741873 /* GraphViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
