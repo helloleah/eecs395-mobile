@@ -137,6 +137,56 @@ class GraphViewController: UIViewController {
         // Set up date pickers
         startDatePicker.addTarget(self, action: #selector(GraphViewController.startDatePickerChanged(_:)), for: UIControlEvents.valueChanged)
         endDatePicker.addTarget(self, action: #selector(GraphViewController.endDatePickerChanged(_:)), for: UIControlEvents.valueChanged)
+        
+        // Download json data
+        let requestURL: URL = URL(string: "http://localhost:5000/GetNumRecords")!
+        let urlRequest: URLRequest = URLRequest(url: requestURL)
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest) {
+            (data, response, error) -> Void in
+            
+            let httpResponse = response as! HTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            
+            if (statusCode == 200) {
+                print("Everything is fine, file downloaded successfully.")
+                do{
+                    
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
+                    print(json)
+                    
+                }catch {
+                    print("Error with Json: \(error)")
+                }
+            }
+        }
+        
+        task.resume()
+        
+        let requestURLGlennan: URL = URL(string: "http://localhost:5000/GetBuildingData?building=GLENNAN")!
+        let urlRequestGlennan: URLRequest = URLRequest(url: requestURLGlennan)
+        let sessionGlennan = URLSession.shared
+        let taskGlennan = sessionGlennan.dataTask(with: urlRequestGlennan) {
+            (data, response, error) -> Void in
+            
+            let httpResponse = response as! HTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            
+            if (statusCode == 200) {
+                print("Everything is fine, file downloaded successfully.")
+                do{
+                    
+                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
+                    print(json)
+                    
+                }catch {
+                    print("Error with Json: \(error)")
+                }
+            }
+        }
+        
+        taskGlennan.resume()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

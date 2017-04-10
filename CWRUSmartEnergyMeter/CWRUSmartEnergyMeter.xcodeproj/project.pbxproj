@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B75577291E997AC300FCB42A /* EnergyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75577281E997AC300FCB42A /* EnergyDataModel.swift */; };
 		B7C268131E83705500741873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268121E83705500741873 /* AppDelegate.swift */; };
 		B7C268151E83705500741873 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268141E83705500741873 /* GraphViewController.swift */; };
 		B7C268171E83705500741873 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268161E83705500741873 /* SettingsViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B75577281E997AC300FCB42A /* EnergyDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyDataModel.swift; sourceTree = "<group>"; };
 		B7C2680F1E83705500741873 /* CWRUSmartEnergyMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWRUSmartEnergyMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C268121E83705500741873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7C268141E83705500741873 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				B7C2681B1E83705500741873 /* Assets.xcassets */,
 				B7C2681D1E83705500741873 /* LaunchScreen.storyboard */,
 				B7C268201E83705500741873 /* Info.plist */,
+				B75577281E997AC300FCB42A /* EnergyDataModel.swift */,
 			);
 			path = CWRUSmartEnergyMeter;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B75577291E997AC300FCB42A /* EnergyDataModel.swift in Sources */,
 				B7C268171E83705500741873 /* SettingsViewController.swift in Sources */,
 				B7C268131E83705500741873 /* AppDelegate.swift in Sources */,
 				B7DABC791E92DD6300D7387C /* AccountViewController.swift in Sources */,
