@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class GraphViewController: UIViewController {
 
@@ -23,6 +24,24 @@ class GraphViewController: UIViewController {
     @IBOutlet weak var measurementTotalButton: UIButton!
     @IBOutlet weak var measurementPeakButton: UIButton!
     @IBOutlet weak var measurementLabel: UILabel!
+    @IBOutlet weak var lineChartView: LineChartView!
+    
+    var lineChartDataSets : [LineChartDataSet] = []
+    
+    func setChart(dataPoints: [String], values: [Double], chartLabel: String, color: UIColor) {
+        lineChartView.noDataText = "Must provide data"
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+            dataEntries.append(dataEntry)
+        }
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: chartLabel)
+        lineChartDataSet.circleRadius = 2
+        lineChartDataSet.circleColors = [color]
+        lineChartDataSet.colors = [color]
+        lineChartDataSets.append(lineChartDataSet)
+    }
     
     func startDatePickerChanged(_ sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
@@ -138,10 +157,38 @@ class GraphViewController: UIViewController {
         startDatePicker.addTarget(self, action: #selector(GraphViewController.startDatePickerChanged(_:)), for: UIControlEvents.valueChanged)
         endDatePicker.addTarget(self, action: #selector(GraphViewController.endDatePickerChanged(_:)), for: UIControlEvents.valueChanged)
         
-        // Download json data
-        let requestURL: URL = URL(string: "http://localhost:5000/GetNumRecords")!
+        downloadBuildingData(urlName: "Glennan", displayName: "Glennan", displayColor: UIColor.cyan)
+        downloadBuildingData(urlName: "Nord", displayName: "Nord", displayColor: UIColor.red)
+        downloadBuildingData(urlName: "Olin_480", displayName: "Olin 480", displayColor: UIColor.purple)
+        downloadBuildingData(urlName: "Olin_208", displayName: "Olin 208", displayColor: UIColor.green)
+        downloadBuildingData(urlName: "Rock_480", displayName: "Rock 480", displayColor: UIColor.blue)
+        downloadBuildingData(urlName: "Sears_480", displayName: "Sears 480", displayColor: UIColor.yellow)
+        downloadBuildingData(urlName: "Sears_208", displayName: "Sears 208", displayColor: UIColor.lightGray)
+        downloadBuildingData(urlName: "Tomlinson", displayName: "Tomlinson", displayColor: UIColor.darkGray)
+        downloadBuildingData(urlName: "White", displayName: "White", displayColor: UIColor.blue)
+        downloadBuildingData(urlName: "Wick_208", displayName: "Wick 208", displayColor: UIColor.magenta)
+        downloadBuildingData(urlName: "Wick_480", displayName: "Wick 480", displayColor: UIColor.orange)
+        downloadBuildingData(urlName: "Yost", displayName: "Yost", displayColor: UIColor.cyan)
+        downloadBuildingData(urlName: "Olin_Sum", displayName: "Olin (Sum)", displayColor: UIColor.red)
+        downloadBuildingData(urlName: "Wick_Sum", displayName: "Wick (Sum)", displayColor: UIColor.purple)
+        downloadBuildingData(urlName: "Sears_Sum", displayName: "Sears (Sum)", displayColor: UIColor.green)
+        
+        let lineChartData = LineChartData(dataSets: lineChartDataSets)
+        lineChartData.setDrawValues(false)
+        lineChartView.data = lineChartData
+        lineChartView.backgroundColor = UIColor.white
+        lineChartView.leftAxis.axisMinimum = 0
+        lineChartView.leftAxis.axisMaximum = 235
+        lineChartView.chartDescription?.text = ""
+
+    }
+    
+    private func downloadBuildingData(urlName: String, displayName: String, displayColor: UIColor) {
+        let semaphore = DispatchSemaphore(value: 0);
+        let requestURL: URL = URL(string: "http://localhost:5000/GetBuildingData?building=" + urlName)!
         let urlRequest: URLRequest = URLRequest(url: requestURL)
         let session = URLSession.shared
+        print("hi")
         let task = session.dataTask(with: urlRequest) {
             (data, response, error) -> Void in
             
@@ -152,42 +199,32 @@ class GraphViewController: UIViewController {
                 print("Everything is fine, file downloaded successfully.")
                 do{
                     
-                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
+                    var json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String : Any]
                     print(json)
+                    let result = json["result"] as! String
+                    let entryArray = result.components(separatedBy: " ")
+                    var dataEntries : [Double] = []
+                    var xVals : [String] = []
+                    var i = 0
+                    for entry in entryArray {
+                        dataEntries.append(Double(entry)!)
+                        xVals.append(String(i))
+                        i += 1
+                    }
+                    self.setChart(dataPoints: xVals, values: dataEntries, chartLabel: displayName, color: displayColor)
+                    semaphore.signal();
                     
-                }catch {
+                } catch {
                     print("Error with Json: \(error)")
+                    semaphore.signal();
                 }
             }
         }
         
         task.resume()
-        
-        let requestURLGlennan: URL = URL(string: "http://localhost:5000/GetBuildingData?building=GLENNAN")!
-        let urlRequestGlennan: URLRequest = URLRequest(url: requestURLGlennan)
-        let sessionGlennan = URLSession.shared
-        let taskGlennan = sessionGlennan.dataTask(with: urlRequestGlennan) {
-            (data, response, error) -> Void in
-            
-            let httpResponse = response as! HTTPURLResponse
-            let statusCode = httpResponse.statusCode
-            
-            if (statusCode == 200) {
-                print("Everything is fine, file downloaded successfully.")
-                do{
-                    
-                    let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments)
-                    print(json)
-                    
-                }catch {
-                    print("Error with Json: \(error)")
-                }
-            }
-        }
-        
-        taskGlennan.resume()
-        
+        semaphore.wait(timeout: .distantFuture);
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
         // Set up button colors

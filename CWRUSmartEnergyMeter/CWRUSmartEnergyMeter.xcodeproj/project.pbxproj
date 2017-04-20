@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B75577291E997AC300FCB42A /* EnergyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75577281E997AC300FCB42A /* EnergyDataModel.swift */; };
+		B77A15461E9EB15400F0B7EE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A15431E9EB14400F0B7EE /* Charts.framework */; };
+		B77A15471E9EB15400F0B7EE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B77A15431E9EB14400F0B7EE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B7C268131E83705500741873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268121E83705500741873 /* AppDelegate.swift */; };
 		B7C268151E83705500741873 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268141E83705500741873 /* GraphViewController.swift */; };
 		B7C268171E83705500741873 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268161E83705500741873 /* SettingsViewController.swift */; };
@@ -17,8 +19,47 @@
 		B7DABC791E92DD6300D7387C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DABC781E92DD6300D7387C /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B77A15421E9EB14400F0B7EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		B77A15441E9EB14400F0B7EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		B77A15481E9EB15400F0B7EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B77A154A1E9EB15400F0B7EE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B77A15471E9EB15400F0B7EE /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B75577281E997AC300FCB42A /* EnergyDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyDataModel.swift; sourceTree = "<group>"; };
+		B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		B7C2680F1E83705500741873 /* CWRUSmartEnergyMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWRUSmartEnergyMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C268121E83705500741873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7C268141E83705500741873 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -35,17 +76,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B77A15461E9EB15400F0B7EE /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B77A153E1E9EB14200F0B7EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B77A15431E9EB14400F0B7EE /* Charts.framework */,
+				B77A15451E9EB14400F0B7EE /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B7C268061E83705500741873 = {
 			isa = PBXGroup;
 			children = (
 				B7C268111E83705500741873 /* CWRUSmartEnergyMeter */,
 				B7C268101E83705500741873 /* Products */,
+				B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,10 +135,12 @@
 				B7C2680B1E83705500741873 /* Sources */,
 				B7C2680C1E83705500741873 /* Frameworks */,
 				B7C2680D1E83705500741873 /* Resources */,
+				B77A154A1E9EB15400F0B7EE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B77A15491E9EB15400F0B7EE /* PBXTargetDependency */,
 			);
 			name = CWRUSmartEnergyMeter;
 			productName = CWRUSmartEnergyMeter;
@@ -122,12 +176,35 @@
 			mainGroup = B7C268061E83705500741873;
 			productRefGroup = B7C268101E83705500741873 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B77A153E1E9EB14200F0B7EE /* Products */;
+					ProjectRef = B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B7C2680E1E83705500741873 /* CWRUSmartEnergyMeter */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B77A15431E9EB14400F0B7EE /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = B77A15421E9EB14400F0B7EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B77A15451E9EB14400F0B7EE /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = B77A15441E9EB14400F0B7EE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B7C2680D1E83705500741873 /* Resources */ = {
@@ -156,6 +233,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B77A15491E9EB15400F0B7EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = B77A15481E9EB15400F0B7EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B7C268181E83705500741873 /* Main.storyboard */ = {
@@ -271,6 +356,7 @@
 		B7C268241E83705500741873 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2SMTQULXJ4;
@@ -286,6 +372,7 @@
 		B7C268251E83705500741873 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2SMTQULXJ4;
