@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B77A15461E9EB15400F0B7EE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A15431E9EB14400F0B7EE /* Charts.framework */; };
 		B77A15471E9EB15400F0B7EE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B77A15431E9EB14400F0B7EE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B77A154C1EA92F2E00F0B7EE /* BarGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A154B1EA92F2E00F0B7EE /* BarGraphViewController.swift */; };
 		B7C268131E83705500741873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268121E83705500741873 /* AppDelegate.swift */; };
 		B7C268151E83705500741873 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268141E83705500741873 /* GraphViewController.swift */; };
 		B7C268171E83705500741873 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268161E83705500741873 /* SettingsViewController.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		B77A154B1EA92F2E00F0B7EE /* BarGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarGraphViewController.swift; sourceTree = "<group>"; };
 		B7C2680F1E83705500741873 /* CWRUSmartEnergyMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWRUSmartEnergyMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C268121E83705500741873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7C268141E83705500741873 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				B7C268121E83705500741873 /* AppDelegate.swift */,
 				B7C268141E83705500741873 /* GraphViewController.swift */,
+				B77A154B1EA92F2E00F0B7EE /* BarGraphViewController.swift */,
 				B7C268161E83705500741873 /* SettingsViewController.swift */,
 				B7C268181E83705500741873 /* Main.storyboard */,
 				B7DABC781E92DD6300D7387C /* AccountViewController.swift */,
@@ -225,6 +228,7 @@
 				B7C268131E83705500741873 /* AppDelegate.swift in Sources */,
 				B7DABC791E92DD6300D7387C /* AccountViewController.swift in Sources */,
 				B7C268151E83705500741873 /* GraphViewController.swift in Sources */,
+				B77A154C1EA92F2E00F0B7EE /* BarGraphViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

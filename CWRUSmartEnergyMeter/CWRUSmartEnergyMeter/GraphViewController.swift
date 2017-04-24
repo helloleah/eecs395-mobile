@@ -20,10 +20,6 @@ class GraphViewController: UIViewController {
     @IBOutlet weak var resolution10SecButton: UIButton!
     @IBOutlet weak var resolution1MinButton: UIButton!
     @IBOutlet weak var resolution1HrButton: UIButton!
-    @IBOutlet weak var measurementAvgButton: UIButton!
-    @IBOutlet weak var measurementTotalButton: UIButton!
-    @IBOutlet weak var measurementPeakButton: UIButton!
-    @IBOutlet weak var measurementLabel: UILabel!
     @IBOutlet weak var lineChartView: LineChartView!
     
     var lineChartDataSets : [LineChartDataSet] = []
@@ -56,13 +52,9 @@ class GraphViewController: UIViewController {
         endDateLabel.isHidden = false
         selectEndDateButton.isHidden = false
         resolutionLabel.isHidden = false
-        measurementLabel.isHidden = false
         resolution1MinButton.isHidden = false
         resolution10SecButton.isHidden = false
         resolution1HrButton.isHidden = false
-        measurementPeakButton.isHidden = false
-        measurementTotalButton.isHidden = false
-        measurementAvgButton.isHidden = false
     }
     
     func endDatePickerChanged(_ sender: UIDatePicker) {
@@ -74,15 +66,10 @@ class GraphViewController: UIViewController {
         let strDate = dateFormatter.string(from: endDatePicker.date)
         endDatePicker.isHidden = true
         selectEndDateButton.setTitle(strDate, for: UIControlState())
-        print(strDate)
         resolutionLabel.isHidden = false
-        measurementLabel.isHidden = false
         resolution1MinButton.isHidden = false
         resolution10SecButton.isHidden = false
         resolution1HrButton.isHidden = false
-        measurementPeakButton.isHidden = false
-        measurementTotalButton.isHidden = false
-        measurementAvgButton.isHidden = false
     }
     
     @IBAction func selectStartDateClicked(_ sender: UIButton) {
@@ -90,25 +77,17 @@ class GraphViewController: UIViewController {
         endDateLabel.isHidden = true
         selectEndDateButton.isHidden = true
         resolutionLabel.isHidden = true
-        measurementLabel.isHidden = true
         resolution1MinButton.isHidden = true
         resolution10SecButton.isHidden = true
         resolution1HrButton.isHidden = true
-        measurementPeakButton.isHidden = true
-        measurementTotalButton.isHidden = true
-        measurementAvgButton.isHidden = true
     }
 
     @IBAction func selectEndDateClicked(_ sender: UIButton) {
         endDatePicker.isHidden = false
         resolutionLabel.isHidden = true
-        measurementLabel.isHidden = true
         resolution1MinButton.isHidden = true
         resolution10SecButton.isHidden = true
         resolution1HrButton.isHidden = true
-        measurementPeakButton.isHidden = true
-        measurementTotalButton.isHidden = true
-        measurementAvgButton.isHidden = true
     }
     
     @IBAction func resolution10SecClicked(_ sender: UIButton) {
@@ -131,25 +110,6 @@ class GraphViewController: UIViewController {
         resolution1HrButton.titleLabel?.textColor = UIColor.blue
         print("clicked")
     }
-    
-    @IBAction func measurementAvgClicked(_ sender: UIButton) {
-        measurementAvgButton.titleLabel?.textColor = UIColor.blue
-        measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
-        measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
-    }
-    
-    @IBAction func measurementTotalClicked(_ sender: UIButton) {
-        measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
-        measurementTotalButton.titleLabel?.textColor = UIColor.blue
-        measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
-    }
-    
-    @IBAction func measurementPeakButton(_ sender: UIButton) {
-        measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
-        measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
-        measurementPeakButton.titleLabel?.textColor = UIColor.blue
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -231,9 +191,6 @@ class GraphViewController: UIViewController {
         resolution10SecButton.titleLabel?.textColor = UIColor.lightGray
         resolution1MinButton.titleLabel?.textColor = UIColor.lightGray
         resolution1HrButton.titleLabel?.textColor = UIColor.lightGray
-        measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
-        measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
-        measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
     }
     
 

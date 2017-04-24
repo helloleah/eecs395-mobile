@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -100,43 +100,6 @@
                                     <action selector="resolution1HrClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="KmQ-wW-dJg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Measurement:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHz-mH-hLo">
-                                <rect key="frame" x="16" y="510" width="110" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1A-RH-fsS">
-                                <rect key="frame" x="16" y="540" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Average">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="measurementAvgClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="6tE-VF-D2A"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILa-C0-0eT">
-                                <rect key="frame" x="147" y="540" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Total">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="measurementTotalClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zkx-gy-6zq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rne-0B-TVq">
-                                <rect key="frame" x="278" y="540" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Peak">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="measurementPeakButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="AYH-TY-q5K"/>
-                                </connections>
-                            </button>
                             <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ePf-LC-XZJ">
                                 <rect key="frame" x="27" y="451" width="320" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -173,10 +136,6 @@
                         <outlet property="endDateLabel" destination="ZfR-bx-0uE" id="RI1-is-yLT"/>
                         <outlet property="endDatePicker" destination="Ls2-O0-lK4" id="udW-WT-Oh6"/>
                         <outlet property="lineChartView" destination="zXJ-dr-QkA" id="XqY-wu-ot5"/>
-                        <outlet property="measurementAvgButton" destination="F1A-RH-fsS" id="QV0-qY-tW4"/>
-                        <outlet property="measurementLabel" destination="YHz-mH-hLo" id="FgT-vT-HHK"/>
-                        <outlet property="measurementPeakButton" destination="rne-0B-TVq" id="hJu-WB-6ae"/>
-                        <outlet property="measurementTotalButton" destination="ILa-C0-0eT" id="KXf-mz-q6r"/>
                         <outlet property="resolution10SecButton" destination="DgB-HV-bLF" id="c2G-J3-cSn"/>
                         <outlet property="resolution1HrButton" destination="kSc-XT-X1j" id="nXG-G3-fgk"/>
                         <outlet property="resolution1MinButton" destination="7wQ-WG-bkQ" id="FGT-YJ-tj0"/>
@@ -193,7 +152,7 @@
         <!--Bar Graph-->
         <scene sceneID="BRE-JV-ON4">
             <objects>
-                <viewController title="Bar Graph" id="JLl-Zx-cep" sceneMemberID="viewController">
+                <viewController title="Bar Graph" id="JLl-Zx-cep" customClass="BarGraphViewController" customModule="CWRUSmartEnergyMeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0l5-K1-Qyk"/>
                         <viewControllerLayoutGuide type="bottom" id="VHn-ik-GLu"/>
@@ -201,9 +160,170 @@
                     <view key="view" contentMode="scaleToFill" id="am1-qw-uJo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yC-1t-fWb" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="8" y="28" width="359" height="287"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="u26-2X-2ft">
+                                <rect key="frame" x="16" y="323" width="197" height="142"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Buildings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHe-cT-wsA">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Start Date and Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSb-3e-CEr">
+                                        <rect key="frame" x="0.0" y="20.5" width="158" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-jN-XI1">
+                                        <rect key="frame" x="0.0" y="41" width="197" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Select Start Date and Time..."/>
+                                        <connections>
+                                            <action selector="selectStartDateClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="DzF-7i-a7v"/>
+                                            <action selector="selectStartDateClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="gq3-aR-Bdj"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="End Date and Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whc-3u-kaT">
+                                        <rect key="frame" x="0.0" y="71" width="150" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDj-zR-PBe">
+                                        <rect key="frame" x="0.0" y="91.5" width="190" height="30"/>
+                                        <state key="normal" title="Select End Date and Time..."/>
+                                        <connections>
+                                            <action selector="selectEndDateClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="AIO-M0-Jgx"/>
+                                            <action selector="selectEndDateClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="CzH-M1-zTl"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Resolution:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUC-H6-2te">
+                                        <rect key="frame" x="0.0" y="121.5" width="85" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyH-Ew-D0e">
+                                <rect key="frame" x="16" y="470" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="10 seconds">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resolution10SecClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="XJv-oX-2cH"/>
+                                    <action selector="resolution10SecClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="y3h-wX-7cq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4M-gF-BbI">
+                                <rect key="frame" x="147" y="470" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="1 minute">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resolution1MinClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WZc-yW-Wl0"/>
+                                    <action selector="resolution1MinClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="f0f-fy-AoV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLv-c3-Qxu">
+                                <rect key="frame" x="278" y="470" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="1 hour">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resolution1HrClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eEU-nu-mEL"/>
+                                    <action selector="resolution1HrClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="vka-vN-oIK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Measurement:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prJ-YC-18i">
+                                <rect key="frame" x="16" y="510" width="110" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAy-5l-ARE">
+                                <rect key="frame" x="16" y="540" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Average">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="measurementAvgClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="j8e-gU-Q8G"/>
+                                    <action selector="measurementAvgClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="uHr-3J-RhY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQZ-1O-2nZ">
+                                <rect key="frame" x="147" y="540" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Total">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="measurementTotalClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="PJb-VD-HA4"/>
+                                    <action selector="measurementTotalClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="lxv-QF-9zE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-of-aVX">
+                                <rect key="frame" x="278" y="540" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Peak">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="measurementPeakButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="R8S-9W-EZA"/>
+                                    <action selector="measurementPeakButton:" destination="JLl-Zx-cep" eventType="touchUpInside" id="sE7-31-axh"/>
+                                </connections>
+                            </button>
+                            <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="154-of-oc3">
+                                <rect key="frame" x="27" y="451" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="512596378.13621902">
+                                    <!--2017-03-30 19:52:58 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5Xg-nc-hDJ">
+                                <rect key="frame" x="27" y="452" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="512595607.76499701">
+                                    <!--2017-03-30 19:40:07 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFA-XX-BNG">
+                                <rect key="frame" x="126" y="318" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select Buildings..."/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bar Graph" image="second" id="y2a-o1-sXt"/>
+                    <connections>
+                        <outlet property="barChartView" destination="0yC-1t-fWb" id="hOs-St-i24"/>
+                        <outlet property="endDateLabel" destination="Whc-3u-kaT" id="dN3-yb-tM6"/>
+                        <outlet property="endDatePicker" destination="5Xg-nc-hDJ" id="ZS1-9U-8nV"/>
+                        <outlet property="measurementAvgButton" destination="jAy-5l-ARE" id="2Kg-P7-Lsl"/>
+                        <outlet property="measurementLabel" destination="prJ-YC-18i" id="Pka-hY-wxW"/>
+                        <outlet property="measurementPeakButton" destination="NUh-of-aVX" id="heM-H5-wPa"/>
+                        <outlet property="measurementTotalButton" destination="JQZ-1O-2nZ" id="rb4-DG-Jkb"/>
+                        <outlet property="resolution10SecButton" destination="yyH-Ew-D0e" id="3tl-yR-ZLj"/>
+                        <outlet property="resolution1HrButton" destination="pLv-c3-Qxu" id="zxY-uu-vpx"/>
+                        <outlet property="resolution1MinButton" destination="I4M-gF-BbI" id="Tmy-an-S4o"/>
+                        <outlet property="resolutionLabel" destination="zUC-H6-2te" id="uHt-Nl-wBC"/>
+                        <outlet property="selectEndDateButton" destination="oDj-zR-PBe" id="5W0-NR-QR3"/>
+                        <outlet property="selectStartDateButton" destination="ME8-jN-XI1" id="5JR-GM-JS5"/>
+                        <outlet property="startDatePicker" destination="154-of-oc3" id="PH9-zX-LVZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tul-SR-xnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
