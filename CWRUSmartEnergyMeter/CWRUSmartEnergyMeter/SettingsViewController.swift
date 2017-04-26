@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,12 @@ class SettingsViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func sscButtonClicked(_ sender: UIButton) {
+        UIApplication.shared.open(URL(string: "http://usg.case.edu/org/ssc/About")! as URL)
+    }
+    
+    @IBAction func oosButtonClicked(_ sender: UIButton) {
+        UIApplication.shared.open(URL(string: "https://case.edu/sustainability/")! as URL)
+    }
+    
 }
-

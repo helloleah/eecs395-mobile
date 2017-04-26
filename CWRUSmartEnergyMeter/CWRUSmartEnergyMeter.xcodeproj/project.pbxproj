@@ -10,6 +10,8 @@
 		B77A15461E9EB15400F0B7EE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77A15431E9EB14400F0B7EE /* Charts.framework */; };
 		B77A15471E9EB15400F0B7EE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B77A15431E9EB14400F0B7EE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B77A154C1EA92F2E00F0B7EE /* BarGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A154B1EA92F2E00F0B7EE /* BarGraphViewController.swift */; };
+		B77B06CE1EB124280071CE9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B77B06CD1EB124280071CE9D /* GoogleService-Info.plist */; };
+		B77B06D41EB126130071CE9D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77B06D31EB126130071CE9D /* SignInViewController.swift */; };
 		B7C268131E83705500741873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268121E83705500741873 /* AppDelegate.swift */; };
 		B7C268151E83705500741873 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268141E83705500741873 /* GraphViewController.swift */; };
 		B7C268171E83705500741873 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268161E83705500741873 /* SettingsViewController.swift */; };
@@ -58,8 +60,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5F2A16E83F2233A8C085ECDE /* Pods-CWRUSmartEnergyMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWRUSmartEnergyMeter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CWRUSmartEnergyMeter/Pods-CWRUSmartEnergyMeter.release.xcconfig"; sourceTree = "<group>"; };
+		61D7B4825E95B5D4D29A1ADC /* Pods-CWRUSmartEnergyMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CWRUSmartEnergyMeter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CWRUSmartEnergyMeter/Pods-CWRUSmartEnergyMeter.debug.xcconfig"; sourceTree = "<group>"; };
 		B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		B77A154B1EA92F2E00F0B7EE /* BarGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarGraphViewController.swift; sourceTree = "<group>"; };
+		B77B06CD1EB124280071CE9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B77B06D01EB124D60071CE9D /* CWRUSmartEnergyMeter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CWRUSmartEnergyMeter-Bridging-Header.h"; sourceTree = "<group>"; };
+		B77B06D31EB126130071CE9D /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B7C2680F1E83705500741873 /* CWRUSmartEnergyMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWRUSmartEnergyMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C268121E83705500741873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7C268141E83705500741873 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +90,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29E49038BAEFE3A3B07F9E16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61D7B4825E95B5D4D29A1ADC /* Pods-CWRUSmartEnergyMeter.debug.xcconfig */,
+				5F2A16E83F2233A8C085ECDE /* Pods-CWRUSmartEnergyMeter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7D299243D8A9252B60D1638D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B77A153E1E9EB14200F0B7EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +118,12 @@
 		B7C268061E83705500741873 = {
 			isa = PBXGroup;
 			children = (
+				B77B06CD1EB124280071CE9D /* GoogleService-Info.plist */,
 				B7C268111E83705500741873 /* CWRUSmartEnergyMeter */,
 				B7C268101E83705500741873 /* Products */,
 				B77A153D1E9EB14200F0B7EE /* Charts.xcodeproj */,
+				29E49038BAEFE3A3B07F9E16 /* Pods */,
+				7D299243D8A9252B60D1638D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +147,8 @@
 				B7C2681B1E83705500741873 /* Assets.xcassets */,
 				B7C2681D1E83705500741873 /* LaunchScreen.storyboard */,
 				B7C268201E83705500741873 /* Info.plist */,
+				B77B06D01EB124D60071CE9D /* CWRUSmartEnergyMeter-Bridging-Header.h */,
+				B77B06D31EB126130071CE9D /* SignInViewController.swift */,
 			);
 			path = CWRUSmartEnergyMeter;
 			sourceTree = "<group>";
@@ -132,10 +160,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7C268231E83705500741873 /* Build configuration list for PBXNativeTarget "CWRUSmartEnergyMeter" */;
 			buildPhases = (
+				524AA34FB7CD21CB36A16EAB /* [CP] Check Pods Manifest.lock */,
 				B7C2680B1E83705500741873 /* Sources */,
 				B7C2680C1E83705500741873 /* Frameworks */,
 				B7C2680D1E83705500741873 /* Resources */,
 				B77A154A1E9EB15400F0B7EE /* Embed Frameworks */,
+				9CA72621370D8465D4BD75E0 /* [CP] Embed Pods Frameworks */,
+				50FA5705936BED554CB0D6B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,7 +191,7 @@
 					B7C2680E1E83705500741873 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2SMTQULXJ4;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -212,12 +243,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7C2681F1E83705500741873 /* LaunchScreen.storyboard in Resources */,
+				B77B06CE1EB124280071CE9D /* GoogleService-Info.plist in Resources */,
 				B7C2681C1E83705500741873 /* Assets.xcassets in Resources */,
 				B7C2681A1E83705500741873 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50FA5705936BED554CB0D6B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CWRUSmartEnergyMeter/Pods-CWRUSmartEnergyMeter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		524AA34FB7CD21CB36A16EAB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9CA72621370D8465D4BD75E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CWRUSmartEnergyMeter/Pods-CWRUSmartEnergyMeter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7C2680B1E83705500741873 /* Sources */ = {
@@ -226,6 +306,7 @@
 			files = (
 				B7C268171E83705500741873 /* SettingsViewController.swift in Sources */,
 				B7C268131E83705500741873 /* AppDelegate.swift in Sources */,
+				B77B06D41EB126130071CE9D /* SignInViewController.swift in Sources */,
 				B7DABC791E92DD6300D7387C /* AccountViewController.swift in Sources */,
 				B7C268151E83705500741873 /* GraphViewController.swift in Sources */,
 				B77A154C1EA92F2E00F0B7EE /* BarGraphViewController.swift in Sources */,
@@ -355,15 +436,87 @@
 		};
 		B7C268241E83705500741873 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61D7B4825E95B5D4D29A1ADC /* Pods-CWRUSmartEnergyMeter.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2SMTQULXJ4;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = CWRUSmartEnergyMeter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Google/Libraries\"",
+					"\"${PODS_ROOT}/GoogleAppUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleAuthUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Libraries\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Libraries\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"GGLCore\"",
+					"-l\"GGLSignIn\"",
+					"-l\"GIPNSURL+FIFE_external\"",
+					"-l\"GSDK_Overload_external\"",
+					"-l\"GTMOAuth2_external_external\"",
+					"-l\"GTMOAuth2_internal_external\"",
+					"-l\"GTMSessionFetcher_core_external\"",
+					"-l\"GTMSessionFetcher_full_external\"",
+					"-l\"GTMStackTrace_external\"",
+					"-l\"GTM_AddressBook_external\"",
+					"-l\"GTM_DebugUtils_external\"",
+					"-l\"GTM_GTMURLBuilder_external\"",
+					"-l\"GTM_KVO_external\"",
+					"-l\"GTM_NSData+zlib\"",
+					"-l\"GTM_NSDictionary+URLArguments_external\"",
+					"-l\"GTM_NSScannerJSON_external\"",
+					"-l\"GTM_NSStringHTML_external\"",
+					"-l\"GTM_NSStringXML_external\"",
+					"-l\"GTM_Regex_external\"",
+					"-l\"GTM_RoundedRectPath_external\"",
+					"-l\"GTM_StringEncoding_external\"",
+					"-l\"GTM_SystemVersion_external\"",
+					"-l\"GTM_UIFont+LineHeight_external\"",
+					"-l\"GTM_core_external\"",
+					"-l\"GTM_iPhone_external\"",
+					"-l\"OpenInChrome_external\"",
+					"-l\"ProtocolBuffers_external\"",
+					"-l\"SignIn_external\"",
+					"-l\"sqlite3\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AddressBook\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leah.CWRUSmartEnergyMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CWRUSmartEnergyMeter/CWRUSmartEnergyMeter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -371,15 +524,87 @@
 		};
 		B7C268251E83705500741873 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F2A16E83F2233A8C085ECDE /* Pods-CWRUSmartEnergyMeter.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2SMTQULXJ4;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = CWRUSmartEnergyMeter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Google/Libraries\"",
+					"\"${PODS_ROOT}/GoogleAppUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleAuthUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Libraries\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Libraries\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Libraries\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"GGLCore\"",
+					"-l\"GGLSignIn\"",
+					"-l\"GIPNSURL+FIFE_external\"",
+					"-l\"GSDK_Overload_external\"",
+					"-l\"GTMOAuth2_external_external\"",
+					"-l\"GTMOAuth2_internal_external\"",
+					"-l\"GTMSessionFetcher_core_external\"",
+					"-l\"GTMSessionFetcher_full_external\"",
+					"-l\"GTMStackTrace_external\"",
+					"-l\"GTM_AddressBook_external\"",
+					"-l\"GTM_DebugUtils_external\"",
+					"-l\"GTM_GTMURLBuilder_external\"",
+					"-l\"GTM_KVO_external\"",
+					"-l\"GTM_NSData+zlib\"",
+					"-l\"GTM_NSDictionary+URLArguments_external\"",
+					"-l\"GTM_NSScannerJSON_external\"",
+					"-l\"GTM_NSStringHTML_external\"",
+					"-l\"GTM_NSStringXML_external\"",
+					"-l\"GTM_Regex_external\"",
+					"-l\"GTM_RoundedRectPath_external\"",
+					"-l\"GTM_StringEncoding_external\"",
+					"-l\"GTM_SystemVersion_external\"",
+					"-l\"GTM_UIFont+LineHeight_external\"",
+					"-l\"GTM_core_external\"",
+					"-l\"GTM_iPhone_external\"",
+					"-l\"OpenInChrome_external\"",
+					"-l\"ProtocolBuffers_external\"",
+					"-l\"SignIn_external\"",
+					"-l\"sqlite3\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AddressBook\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leah.CWRUSmartEnergyMeter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CWRUSmartEnergyMeter/CWRUSmartEnergyMeter-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
