@@ -16,15 +16,26 @@ class BarGraphViewController: UIViewController {
     @IBOutlet weak var selectStartDateButton: UIButton!
     @IBOutlet weak var selectEndDateButton: UIButton!
     @IBOutlet weak var endDateLabel: UILabel!
-    @IBOutlet weak var resolutionLabel: UILabel!
-    @IBOutlet weak var resolution10SecButton: UIButton!
-    @IBOutlet weak var resolution1MinButton: UIButton!
-    @IBOutlet weak var resolution1HrButton: UIButton!
     @IBOutlet weak var measurementAvgButton: UIButton!
     @IBOutlet weak var measurementTotalButton: UIButton!
     @IBOutlet weak var measurementPeakButton: UIButton!
     @IBOutlet weak var measurementLabel: UILabel!
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var glennanButton: UIButton!
+    @IBOutlet weak var nordButton: UIButton!
+    @IBOutlet weak var olin480Button: UIButton!
+    @IBOutlet weak var olin208Button: UIButton!
+    @IBOutlet weak var rock480Button: UIButton!
+    @IBOutlet weak var sears480Button: UIButton!
+    @IBOutlet weak var sears208Button: UIButton!
+    @IBOutlet weak var tomlinsonButton: UIButton!
+    @IBOutlet weak var whiteButton: UIButton!
+    @IBOutlet weak var wick208Button: UIButton!
+    @IBOutlet weak var wick480Button: UIButton!
+    @IBOutlet weak var yostButton: UIButton!
+    @IBOutlet weak var olinSumButton: UIButton!
+    @IBOutlet weak var searsSumButton: UIButton!
+    @IBOutlet weak var wickSumButton: UIButton!
     
     var barChartDataEntries: [BarChartDataEntry] = []
     var glennanData: [Double] = []
@@ -43,6 +54,22 @@ class BarGraphViewController: UIViewController {
     var searsSumData: [Double] = []
     var wickSumData: [Double] = []
     var dataArrays : [[Double]] = []
+    var currentMeasurement : Measurement = .total
+    var glennanOn : Bool = true
+    var nordOn : Bool = true
+    var olin480On : Bool = true
+    var olin208On : Bool = true
+    var rock480On : Bool = true
+    var sears480On : Bool = true
+    var sears208On : Bool = true
+    var tomlinsonOn : Bool = true
+    var whiteOn : Bool = true
+    var wick208On : Bool = true
+    var wick480On : Bool = true
+    var yostOn : Bool = true
+    var olinSumOn : Bool = true
+    var searsSumOn : Bool = true
+    var wickSumOn : Bool = true
     
     enum Measurement {
         case total, peak, average
@@ -102,11 +129,7 @@ class BarGraphViewController: UIViewController {
         print(strDate)
         endDateLabel.isHidden = false
         selectEndDateButton.isHidden = false
-        resolutionLabel.isHidden = false
         measurementLabel.isHidden = false
-        resolution1MinButton.isHidden = false
-        resolution10SecButton.isHidden = false
-        resolution1HrButton.isHidden = false
         measurementPeakButton.isHidden = false
         measurementTotalButton.isHidden = false
         measurementAvgButton.isHidden = false
@@ -122,11 +145,7 @@ class BarGraphViewController: UIViewController {
         endDatePicker.isHidden = true
         selectEndDateButton.setTitle(strDate, for: UIControlState())
         print(strDate)
-        resolutionLabel.isHidden = false
         measurementLabel.isHidden = false
-        resolution1MinButton.isHidden = false
-        resolution10SecButton.isHidden = false
-        resolution1HrButton.isHidden = false
         measurementPeakButton.isHidden = false
         measurementTotalButton.isHidden = false
         measurementAvgButton.isHidden = false
@@ -136,11 +155,7 @@ class BarGraphViewController: UIViewController {
         startDatePicker.isHidden = false
         endDateLabel.isHidden = true
         selectEndDateButton.isHidden = true
-        resolutionLabel.isHidden = true
         measurementLabel.isHidden = true
-        resolution1MinButton.isHidden = true
-        resolution10SecButton.isHidden = true
-        resolution1HrButton.isHidden = true
         measurementPeakButton.isHidden = true
         measurementTotalButton.isHidden = true
         measurementAvgButton.isHidden = true
@@ -148,43 +163,19 @@ class BarGraphViewController: UIViewController {
     
     @IBAction func selectEndDateClicked(_ sender: UIButton) {
         endDatePicker.isHidden = false
-        resolutionLabel.isHidden = true
         measurementLabel.isHidden = true
-        resolution1MinButton.isHidden = true
-        resolution10SecButton.isHidden = true
-        resolution1HrButton.isHidden = true
         measurementPeakButton.isHidden = true
         measurementTotalButton.isHidden = true
         measurementAvgButton.isHidden = true
     }
     
-    @IBAction func resolution10SecClicked(_ sender: UIButton) {
-        resolution10SecButton.titleLabel?.textColor = UIColor.blue
-        resolution1MinButton.titleLabel?.textColor = UIColor.lightGray
-        resolution1HrButton.titleLabel?.textColor = UIColor.lightGray
-        print("clicked")
-    }
-    
-    @IBAction func resolution1MinClicked(_ sender: UIButton) {
-        resolution10SecButton.titleLabel?.textColor = UIColor.lightGray
-        resolution1MinButton.titleLabel?.textColor = UIColor.blue
-        resolution1HrButton.titleLabel?.textColor = UIColor.lightGray
-        print("clicked")
-    }
-    
-    @IBAction func resolution1HrClicked(_ sender: UIButton) {
-        resolution10SecButton.titleLabel?.textColor = UIColor.lightGray
-        resolution1MinButton.titleLabel?.textColor = UIColor.lightGray
-        resolution1HrButton.titleLabel?.textColor = UIColor.blue
-        print("clicked")
-    }
-    
     @IBAction func measurementAvgClicked(_ sender: UIButton) {
+        currentMeasurement = .average
         measurementAvgButton.titleLabel?.textColor = UIColor.blue
         measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
         measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
         barChartDataEntries = []
-        setAllChartValues(measurement: .average)
+        resetChart()
         let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
         barChartDataSet.colors = ChartColorTemplates.colorful()
         let barChartData = BarChartData(dataSet: barChartDataSet)
@@ -196,11 +187,12 @@ class BarGraphViewController: UIViewController {
     }
     
     @IBAction func measurementTotalClicked(_ sender: UIButton) {
+        currentMeasurement = .total
         measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
         measurementTotalButton.titleLabel?.textColor = UIColor.blue
         measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
         barChartDataEntries = []
-        setAllChartValues(measurement: .total)
+        resetChart()
         let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
         barChartDataSet.colors = ChartColorTemplates.colorful()
         let barChartData = BarChartData(dataSet: barChartDataSet)
@@ -212,11 +204,12 @@ class BarGraphViewController: UIViewController {
     }
     
     @IBAction func measurementPeakButton(_ sender: UIButton) {
+        currentMeasurement = .peak
         measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
         measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
         measurementPeakButton.titleLabel?.textColor = UIColor.blue
         barChartDataEntries = []
-        setAllChartValues(measurement: .peak)
+        resetChart()
         let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
         barChartDataSet.colors = ChartColorTemplates.colorful()
         let barChartData = BarChartData(dataSet: barChartDataSet)
@@ -225,9 +218,325 @@ class BarGraphViewController: UIViewController {
         barChartView.leftAxis.axisMinimum = 0
         barChartView.leftAxis.axisMaximum = 300
         self.barChartView.notifyDataSetChanged()
-        print("peak clicked")
     }
     
+    @IBAction func glennanButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !glennanOn {
+            // selecting
+            glennanButton.titleLabel?.textColor = UIColor.blue
+            glennanOn = true
+        }
+        else {
+            // deselecting
+            glennanButton.titleLabel?.textColor = UIColor.lightGray
+            glennanOn = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func nordButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !nordOn {
+            // selecting
+            nordButton.titleLabel?.textColor = UIColor.blue
+            nordOn = true
+        }
+        else {
+            // deselecting
+            nordButton.titleLabel?.textColor = UIColor.lightGray
+            nordOn = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func olin480ButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !olin480On {
+            // selecting
+            olin480Button.titleLabel?.textColor = UIColor.blue
+            olin480On = true
+        }
+        else {
+            // deselecting
+            olin480Button.titleLabel?.textColor = UIColor.lightGray
+            olin480On = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func olin208ButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !olin208On {
+            // selecting
+            olin208Button.titleLabel?.textColor = UIColor.blue
+            olin208On = true
+        }
+        else {
+            // deselecting
+            olin208Button.titleLabel?.textColor = UIColor.lightGray
+            olin208On = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func rock480ButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !rock480On {
+            // selecting
+            rock480Button.titleLabel?.textColor = UIColor.blue
+            rock480On = true
+        }
+        else {
+            // deselecting
+            rock480Button.titleLabel?.textColor = UIColor.lightGray
+            rock480On = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func sears480ButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !sears480On {
+            // selecting
+            sears480Button.titleLabel?.textColor = UIColor.blue
+            sears480On = true
+        }
+        else {
+            // deselecting
+            sears480Button.titleLabel?.textColor = UIColor.lightGray
+            sears480On = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func sears208ButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !sears208On {
+            // selecting
+            sears208Button.titleLabel?.textColor = UIColor.blue
+            sears208On = true
+        }
+        else {
+            // deselecting
+            sears208Button.titleLabel?.textColor = UIColor.lightGray
+            sears208On = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func tomlinsonButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !tomlinsonOn {
+            // selecting
+            tomlinsonButton.titleLabel?.textColor = UIColor.blue
+            tomlinsonOn = true
+        }
+        else {
+            // deselecting
+            tomlinsonButton.titleLabel?.textColor = UIColor.lightGray
+            tomlinsonOn = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func whiteButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !whiteOn {
+            // selecting
+            whiteButton.titleLabel?.textColor = UIColor.blue
+            whiteOn = true
+        }
+        else {
+            // deselecting
+            whiteButton.titleLabel?.textColor = UIColor.lightGray
+            whiteOn = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func wick208ButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !wick208On {
+            // selecting
+            wick208Button.titleLabel?.textColor = UIColor.blue
+            wick208On = true
+        }
+        else {
+            // deselecting
+            wick208Button.titleLabel?.textColor = UIColor.lightGray
+            wick208On = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func wick480ButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !wick480On {
+            // selecting
+            wick480Button.titleLabel?.textColor = UIColor.blue
+            wick480On = true
+        }
+        else {
+            // deselecting
+            wick480Button.titleLabel?.textColor = UIColor.lightGray
+            wick480On = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func yostButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !yostOn {
+            // selecting
+            yostButton.titleLabel?.textColor = UIColor.blue
+            yostOn = true
+        }
+        else {
+            // deselecting
+            yostButton.titleLabel?.textColor = UIColor.lightGray
+            yostOn = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func olinSumButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !olinSumOn {
+            // selecting
+            olinSumButton.titleLabel?.textColor = UIColor.blue
+            olinSumOn = true
+        }
+        else {
+            // deselecting
+            olinSumButton.titleLabel?.textColor = UIColor.lightGray
+            olinSumOn = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func searsSumButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !searsSumOn {
+            // selecting
+            searsSumButton.titleLabel?.textColor = UIColor.blue
+            searsSumOn = true
+        }
+        else {
+            // deselecting
+            searsSumButton.titleLabel?.textColor = UIColor.lightGray
+            searsSumOn = false
+        }
+        resetChart()
+    }
+    
+    @IBAction func wickSumButtonClicked(_ sender: UIButton) {
+        // color changing not working
+        if !wickSumOn {
+            // selecting
+            wickSumButton.titleLabel?.textColor = UIColor.blue
+            wickSumOn = true
+        }
+        else {
+            // deselecting
+            wickSumButton.titleLabel?.textColor = UIColor.lightGray
+            wickSumOn = false
+        }
+        resetChart()
+    }
+    
+    private func resetChart() {
+        // reset the data entry array and x axis labels
+        barChartDataEntries = []
+        var buildingNames : [String] = []
+        var x = 0.0
+        if glennanOn {
+            setChart(values: glennanData, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Glennan")
+        }
+        if nordOn {
+            setChart(values: nordData, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Nord")
+        }
+        if olin480On {
+            setChart(values: olin480Data, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Olin 480")
+        }
+        if olin208On {
+            setChart(values: olin208Data, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Olin 208")
+        }
+        if rock480On {
+            setChart(values: rock480Data, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Rock 480")
+        }
+        if sears480On {
+            setChart(values: sears480Data, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Sears 480")
+        }
+        if sears208On {
+            setChart(values: sears208Data, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Sears 208")
+        }
+        if tomlinsonOn {
+            setChart(values: tomlinsonData, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Tomlinson")
+        }
+        if whiteOn {
+            setChart(values: whiteData, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("White")
+        }
+        if wick208On {
+            setChart(values: wick208Data, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Wick 208")
+        }
+        if wick480On {
+            setChart(values: wick480Data, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Wick 480")
+        }
+        if yostOn {
+            setChart(values: yostData, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Yost")
+        }
+        if olinSumOn {
+            setChart(values: olinSumData, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Olin (Sum)")
+        }
+        if searsSumOn {
+            setChart(values: searsSumData, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Sears (Sum)")
+        }
+        if wickSumOn {
+            setChart(values: wickSumData, xVal: x, measurement: currentMeasurement)
+            x += 1
+            buildingNames.append("Wick (Sum)")
+        }
+        barChartView.noDataText = "Must provide data"
+        let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
+        barChartDataSet.colors = ChartColorTemplates.colorful()
+        let barChartData = BarChartData(dataSet: barChartDataSet)
+        barChartData.setDrawValues(false)
+        barChartView.data = barChartData
+        barChartView.xAxis.labelPosition = .bottom
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: buildingNames)
+        barChartView.xAxis.granularity = 1
+        barChartView.backgroundColor = UIColor.white
+        barChartView.chartDescription?.text = ""
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -253,6 +562,7 @@ class BarGraphViewController: UIViewController {
         
         // default is total
         setAllChartValues(measurement: .total)
+        currentMeasurement = .total
     
         barChartView.noDataText = "Must provide data"
         let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
@@ -329,11 +639,8 @@ class BarGraphViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         // Set up button colors
-        resolution10SecButton.titleLabel?.textColor = UIColor.lightGray
-        resolution1MinButton.titleLabel?.textColor = UIColor.lightGray
-        resolution1HrButton.titleLabel?.textColor = UIColor.lightGray
         measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
-        measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
+     //   measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
         measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
     }
     
