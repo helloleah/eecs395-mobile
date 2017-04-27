@@ -614,6 +614,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c0s-9M-xKK">
+                                <rect key="frame" x="52" y="233" width="270" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b35-oA-taO">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="270" id="WcY-Bd-HWb"/>
+                                            <constraint firstAttribute="height" constant="70" id="i31-de-yDt"/>
+                                        </constraints>
+                                        <string key="text">Sign In with
+Google</string>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="b35-oA-taO" firstAttribute="top" secondItem="c0s-9M-xKK" secondAttribute="top" constant="200" id="TAs-DK-9wZ"/>
+                                </constraints>
+                            </stackView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1e3-xP-w5E" customClass="GIDSignInButton">
                                 <rect key="frame" x="112" y="311" width="150" height="44"/>
                                 <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -622,20 +642,24 @@
                                     <constraint firstAttribute="height" constant="44" id="R0P-1Y-4ju"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b35-oA-taO">
-                                <rect key="frame" x="52" y="298" width="270" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="WcY-Bd-HWb"/>
-                                    <constraint firstAttribute="height" constant="70" id="i31-de-yDt"/>
-                                </constraints>
-                                <string key="text">Sign In with
-Google</string>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CWRU Smart Energy Meter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjg-Le-bdy">
+                                <rect key="frame" x="16" y="108" width="343" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cwru-formal-blue-tag" translatesAutoresizingMaskIntoConstraints="NO" id="2ia-4N-BIO">
+                                <rect key="frame" x="16" y="435" width="343" height="142"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1e3-xP-w5E" firstAttribute="top" secondItem="c0s-9M-xKK" secondAttribute="bottom" constant="8" id="5ru-5h-nmL"/>
+                            <constraint firstItem="1e3-xP-w5E" firstAttribute="centerX" secondItem="L5Y-HL-CVl" secondAttribute="centerX" id="TKL-ks-xDR"/>
+                            <constraint firstItem="c0s-9M-xKK" firstAttribute="centerX" secondItem="L5Y-HL-CVl" secondAttribute="centerX" id="mbL-7P-TST"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="signInButton" destination="1e3-xP-w5E" id="7Zw-H7-8fq"/>
@@ -644,7 +668,7 @@ Google</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdt-4s-d2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-796" y="0.0"/>
+            <point key="canvasLocation" x="-796" y="-0.44977511244377816"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -669,6 +693,7 @@ Google</string>
         </scene>
     </scenes>
     <resources>
+        <image name="cwru-formal-blue-tag" width="530" height="125"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
