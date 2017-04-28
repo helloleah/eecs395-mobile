@@ -12,6 +12,7 @@
 		B77A154C1EA92F2E00F0B7EE /* BarGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A154B1EA92F2E00F0B7EE /* BarGraphViewController.swift */; };
 		B77B06CE1EB124280071CE9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B77B06CD1EB124280071CE9D /* GoogleService-Info.plist */; };
 		B77B06D41EB126130071CE9D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77B06D31EB126130071CE9D /* SignInViewController.swift */; };
+		B77B06DC1EB3CE5C0071CE9D /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77B06DB1EB3CE5C0071CE9D /* PieChartViewController.swift */; };
 		B7C268131E83705500741873 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268121E83705500741873 /* AppDelegate.swift */; };
 		B7C268151E83705500741873 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268141E83705500741873 /* GraphViewController.swift */; };
 		B7C268171E83705500741873 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C268161E83705500741873 /* SettingsViewController.swift */; };
@@ -67,6 +68,7 @@
 		B77B06CD1EB124280071CE9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B77B06D01EB124D60071CE9D /* CWRUSmartEnergyMeter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CWRUSmartEnergyMeter-Bridging-Header.h"; sourceTree = "<group>"; };
 		B77B06D31EB126130071CE9D /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B77B06DB1EB3CE5C0071CE9D /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		B7C2680F1E83705500741873 /* CWRUSmartEnergyMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWRUSmartEnergyMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7C268121E83705500741873 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7C268141E83705500741873 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				B7C268201E83705500741873 /* Info.plist */,
 				B77B06D01EB124D60071CE9D /* CWRUSmartEnergyMeter-Bridging-Header.h */,
 				B77B06D31EB126130071CE9D /* SignInViewController.swift */,
+				B77B06DB1EB3CE5C0071CE9D /* PieChartViewController.swift */,
 			);
 			path = CWRUSmartEnergyMeter;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				B77B06D41EB126130071CE9D /* SignInViewController.swift in Sources */,
 				B7DABC791E92DD6300D7387C /* AccountViewController.swift in Sources */,
 				B7C268151E83705500741873 /* GraphViewController.swift in Sources */,
+				B77B06DC1EB3CE5C0071CE9D /* PieChartViewController.swift in Sources */,
 				B77A154C1EA92F2E00F0B7EE /* BarGraphViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

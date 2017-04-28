@@ -317,7 +317,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-wX-EuX">
-                                <rect key="frame" x="260" y="344" width="36" height="28"/>
+                                <rect key="frame" x="260" y="343" width="36" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="White"/>
@@ -326,7 +326,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cP4-Nz-JEr">
-                                <rect key="frame" x="301" y="344" width="58" height="28"/>
+                                <rect key="frame" x="301" y="343" width="58" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Wick 208"/>
@@ -427,7 +427,7 @@
         <!--Pie Chart-->
         <scene sceneID="LuQ-BO-uAs">
             <objects>
-                <viewController title="Pie Chart" id="2rg-yb-5i9" sceneMemberID="viewController">
+                <viewController title="Pie Chart" id="2rg-yb-5i9" customClass="PieChartViewController" customModule="CWRUSmartEnergyMeter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O1z-ts-Qxn"/>
                         <viewControllerLayoutGuide type="bottom" id="Wcj-FQ-a3D"/>
@@ -435,13 +435,297 @@
                     <view key="view" contentMode="scaleToFill" id="Ba8-ga-pdp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o9V-sl-HqC" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="8" y="20" width="359" height="295"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Buildings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUv-RC-Itw">
+                                <rect key="frame" x="16" y="323" width="75" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="25j-qO-cbY">
+                                <rect key="frame" x="16" y="400" width="197" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Start Date and Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAm-6M-Nun">
+                                        <rect key="frame" x="0.0" y="0.0" width="141.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkV-dy-Avl">
+                                        <rect key="frame" x="0.0" y="18" width="197" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Select Start Date and Time..."/>
+                                        <connections>
+                                            <action selector="selectStartDateClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="9TL-dL-Jo7"/>
+                                            <action selector="selectStartDateClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="9c1-Pw-q3Z"/>
+                                            <action selector="selectStartDateClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="RDB-G6-WDT"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="End Date and Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nf5-r5-4pW">
+                                        <rect key="frame" x="0.0" y="48" width="134" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLJ-ad-xvV">
+                                        <rect key="frame" x="0.0" y="66" width="190" height="30"/>
+                                        <state key="normal" title="Select End Date and Time..."/>
+                                        <connections>
+                                            <action selector="selectEndDateClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="hum-8h-hd2"/>
+                                            <action selector="selectEndDateClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="o41-pi-dWw"/>
+                                            <action selector="selectEndDateClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="wQj-aM-XfE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Measurement:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKK-4S-ijS">
+                                <rect key="frame" x="16" y="510" width="110" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJM-Qw-WFx">
+                                <rect key="frame" x="16" y="540" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Average">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="measurementAvgClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="6b4-AG-9I6"/>
+                                    <action selector="measurementAvgClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="ay6-Z6-xtZ"/>
+                                    <action selector="measurementAvgClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="dwr-Sy-F7n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKE-FM-oG9">
+                                <rect key="frame" x="147" y="540" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Total">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="measurementTotalClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="3Db-Qb-hSq"/>
+                                    <action selector="measurementTotalClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="g5l-SG-9a8"/>
+                                    <action selector="measurementTotalClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="j2X-2j-3Db"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faJ-6n-SPf">
+                                <rect key="frame" x="278" y="540" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Peak">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="measurementPeakButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="kh6-OP-jbI"/>
+                                    <action selector="measurementPeakButton:" destination="2rg-yb-5i9" eventType="touchUpInside" id="rru-4C-DOz"/>
+                                    <action selector="measurementPeakButton:" destination="JLl-Zx-cep" eventType="touchUpInside" id="uWJ-Nl-aPH"/>
+                                </connections>
+                            </button>
+                            <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hvL-7M-NWL">
+                                <rect key="frame" x="27" y="451" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="512596378.13621902">
+                                    <!--2017-03-30 19:52:58 +0000-->
+                                </date>
+                            </datePicker>
+                            <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VNG-2K-a43">
+                                <rect key="frame" x="27" y="451" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="512595607.76499701">
+                                    <!--2017-03-30 19:40:07 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiN-nD-ayV">
+                                <rect key="frame" x="88" y="318" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Glennan"/>
+                                <connections>
+                                    <action selector="glennanButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="5pA-Xh-Uhp"/>
+                                    <action selector="glennanButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="fw3-bA-dqj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAP-tC-NKJ">
+                                <rect key="frame" x="168" y="318" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Nord"/>
+                                <connections>
+                                    <action selector="nordButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="Auk-kC-Vh2"/>
+                                    <action selector="nordButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="HEr-67-rSt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEx-KY-Cup">
+                                <rect key="frame" x="224" y="318" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Olin 480"/>
+                                <connections>
+                                    <action selector="olin480ButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="7LW-47-LQG"/>
+                                    <action selector="olin480ButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="MIC-9r-9hj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5c-K8-MYr">
+                                <rect key="frame" x="16" y="343" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Rock 480"/>
+                                <connections>
+                                    <action selector="rock480ButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="KMU-U8-jWo"/>
+                                    <action selector="rock480ButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="uLy-Xg-10x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kU5-UI-JeT">
+                                <rect key="frame" x="79" y="343" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Sears 480"/>
+                                <connections>
+                                    <action selector="sears480ButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="HwN-Lk-niU"/>
+                                    <action selector="sears480ButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="uFa-rn-osh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYj-Po-bRf">
+                                <rect key="frame" x="143" y="343" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Sears 208"/>
+                                <connections>
+                                    <action selector="sears208ButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="5ZV-Az-rJI"/>
+                                    <action selector="sears208ButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="D7A-6y-ZYE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhg-Xm-n5h">
+                                <rect key="frame" x="260" y="343" width="36" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="White"/>
+                                <connections>
+                                    <action selector="whiteButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="NBf-CL-8bH"/>
+                                    <action selector="whiteButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="meQ-Td-vN0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xps-ht-49U">
+                                <rect key="frame" x="301" y="343" width="58" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Wick 208"/>
+                                <connections>
+                                    <action selector="wick208ButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="Tnq-uN-Mng"/>
+                                    <action selector="wick208ButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="rtW-W1-Ocg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wu-LC-DLM">
+                                <rect key="frame" x="16" y="370" width="59" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Wick 480"/>
+                                <connections>
+                                    <action selector="wick480ButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="Hxf-Zc-sJG"/>
+                                    <action selector="wick480ButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="Jgr-Qb-ewL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vi2-Sb-lIf">
+                                <rect key="frame" x="88" y="370" width="30" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Yost"/>
+                                <connections>
+                                    <action selector="yostButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="UNa-Fu-Z5U"/>
+                                    <action selector="yostButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="zCb-rp-2ek"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXp-wA-4qO">
+                                <rect key="frame" x="131" y="370" width="64" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Olin (Sum)"/>
+                                <connections>
+                                    <action selector="olinSumButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="Q9F-rE-TLZ"/>
+                                    <action selector="olinSumButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="Zfc-kO-pGo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D8Y-YV-psr">
+                                <rect key="frame" x="206" y="370" width="74" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Sears (Sum)"/>
+                                <connections>
+                                    <action selector="searsSumButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="FAY-yg-cwh"/>
+                                    <action selector="searsSumButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="tD9-jN-LwK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsF-Lv-64o">
+                                <rect key="frame" x="289" y="370" width="70" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Wick (Sum)"/>
+                                <connections>
+                                    <action selector="wickSumButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="sAZ-5D-gLt"/>
+                                    <action selector="wickSumButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="xQz-Gz-h52"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmC-dK-fiY">
+                                <rect key="frame" x="213" y="343" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Tomlin"/>
+                                <connections>
+                                    <action selector="tomlinsonButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="Coi-mH-4qD"/>
+                                    <action selector="tomlinsonButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="gJa-Vr-LaL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb6-oR-bB0">
+                                <rect key="frame" x="301" y="318" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Olin 208"/>
+                                <connections>
+                                    <action selector="olin208ButtonClicked:" destination="2rg-yb-5i9" eventType="touchUpInside" id="6dT-Gh-s9g"/>
+                                    <action selector="olin208ButtonClicked:" destination="JLl-Zx-cep" eventType="touchUpInside" id="ehX-ik-FOd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pie Chart" image="first" id="QKA-85-cGx"/>
+                    <connections>
+                        <outlet property="endDateLabel" destination="nf5-r5-4pW" id="OIS-kl-FHf"/>
+                        <outlet property="endDatePicker" destination="VNG-2K-a43" id="RFa-U1-p7f"/>
+                        <outlet property="glennanButton" destination="PiN-nD-ayV" id="evc-hZ-mMU"/>
+                        <outlet property="measurementAvgButton" destination="VJM-Qw-WFx" id="Rbs-5P-jkz"/>
+                        <outlet property="measurementLabel" destination="JKK-4S-ijS" id="YYU-pb-DMF"/>
+                        <outlet property="measurementPeakButton" destination="faJ-6n-SPf" id="LPn-vc-OJL"/>
+                        <outlet property="measurementTotalButton" destination="pKE-FM-oG9" id="Tiw-sD-9cF"/>
+                        <outlet property="nordButton" destination="eAP-tC-NKJ" id="4Zz-oW-uKW"/>
+                        <outlet property="olin208Button" destination="xb6-oR-bB0" id="2Fa-EI-bAk"/>
+                        <outlet property="olin480Button" destination="QEx-KY-Cup" id="8RK-0T-kAf"/>
+                        <outlet property="olinSumButton" destination="CXp-wA-4qO" id="Udv-r8-OX0"/>
+                        <outlet property="pieChartView" destination="o9V-sl-HqC" id="kUI-7r-X8u"/>
+                        <outlet property="rock480Button" destination="K5c-K8-MYr" id="Klm-N1-F49"/>
+                        <outlet property="sears208Button" destination="ZYj-Po-bRf" id="tLO-37-63N"/>
+                        <outlet property="sears480Button" destination="kU5-UI-JeT" id="a5t-4r-dTK"/>
+                        <outlet property="searsSumButton" destination="D8Y-YV-psr" id="qOa-Ut-8xx"/>
+                        <outlet property="selectEndDateButton" destination="WLJ-ad-xvV" id="OA6-1z-TOT"/>
+                        <outlet property="selectStartDateButton" destination="SkV-dy-Avl" id="gh0-KP-qSk"/>
+                        <outlet property="startDatePicker" destination="hvL-7M-NWL" id="bsE-wB-e3Q"/>
+                        <outlet property="tomlinsonButton" destination="qmC-dK-fiY" id="c1z-dE-uAG"/>
+                        <outlet property="whiteButton" destination="Jhg-Xm-n5h" id="WWi-bG-cgZ"/>
+                        <outlet property="wick208Button" destination="xps-ht-49U" id="eJp-Dw-QJ5"/>
+                        <outlet property="wick480Button" destination="3wu-LC-DLM" id="MZw-iw-GA9"/>
+                        <outlet property="wickSumButton" destination="TsF-Lv-64o" id="7lH-4h-hXQ"/>
+                        <outlet property="yostButton" destination="vi2-Sb-lIf" id="2Fd-ET-BnW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7o9-Ob-BEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="778"/>
+            <point key="canvasLocation" x="-2.3999999999999999" y="777.66116941529242"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ESV-sx-u9f">
@@ -559,6 +843,32 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dVX-G3-b8J">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dVX-G3-b8J" id="VUG-gS-dG7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6x-x0-0Hh">
+                                                    <rect key="frame" x="8" y="11" width="67" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crP-34-2w2">
+                                                    <rect key="frame" x="321" y="5" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    <state key="normal" title="&gt;"/>
+                                                    <connections>
+                                                        <action selector="signOutButtonClicked:" destination="S3m-3i-fCx" eventType="touchUpInside" id="pLc-XH-QcU"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -570,6 +880,9 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Settings" image="second" selectedImage="second" id="8TQ-Vk-eae"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="rZ6-1f-UI2" kind="show" identifier="settingsToSignIn" id="7OM-gu-c2x"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGQ-jQ-jrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

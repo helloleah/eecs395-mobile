@@ -1,15 +1,15 @@
 //
-//  BarChartViewController.swift
+//  PieChartViewController.swift
 //  CWRUSmartEnergyMeter
 //
-//  Created by Leah Karasek on 3/22/17.
+//  Created by Leah Karasek on 4/28/17.
 //  Copyright © 2017 Leah Karasek. All rights reserved.
 //
 
 import UIKit
 import Charts
 
-class BarGraphViewController: UIViewController {
+class PieChartViewController: UIViewController {
     
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
@@ -20,7 +20,7 @@ class BarGraphViewController: UIViewController {
     @IBOutlet weak var measurementTotalButton: UIButton!
     @IBOutlet weak var measurementPeakButton: UIButton!
     @IBOutlet weak var measurementLabel: UILabel!
-    @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var glennanButton: UIButton!
     @IBOutlet weak var nordButton: UIButton!
     @IBOutlet weak var olin480Button: UIButton!
@@ -37,7 +37,7 @@ class BarGraphViewController: UIViewController {
     @IBOutlet weak var searsSumButton: UIButton!
     @IBOutlet weak var wickSumButton: UIButton!
     
-    var barChartDataEntries: [BarChartDataEntry] = []
+    var pieChartDataEntries: [PieChartDataEntry] = []
     var glennanData: [Double] = []
     var nordData: [Double] = []
     var olin480Data: [Double] = []
@@ -75,18 +75,18 @@ class BarGraphViewController: UIViewController {
         case total, peak, average
     }
     
-    func setChart(values: [Double], xVal: Double, measurement: Measurement) {
+    func setChart(values: [Double], xVal: Double, measurement: Measurement, label: String) {
         if measurement == .total {
             var total = 0.0
             for val in values {
                 total += val
             }
-            let entry = BarChartDataEntry(x: xVal, y: total)
-            barChartDataEntries.append(entry)
+            let entry = PieChartDataEntry(value: total, label: label)
+            pieChartDataEntries.append(entry)
         }
         if measurement == .peak {
-            let entry = BarChartDataEntry(x: xVal, y: values.max()!)
-            barChartDataEntries.append(entry)
+            let entry = PieChartDataEntry(value: values.max()!, label: label)
+            pieChartDataEntries.append(entry)
         }
         if measurement == .average {
             var total = 0.0
@@ -94,27 +94,27 @@ class BarGraphViewController: UIViewController {
                 total += val
             }
             let avg = total / Double(values.count)
-            let entry = BarChartDataEntry(x: xVal, y: avg)
-            barChartDataEntries.append(entry)
+            let entry = PieChartDataEntry(value: avg, label: label)
+            pieChartDataEntries.append(entry)
         }
     }
     
     func setAllChartValues(measurement: Measurement) {
-        setChart(values: glennanData, xVal: 0.0, measurement: measurement)
-        setChart(values: nordData, xVal: 1.0, measurement: measurement)
-        setChart(values: olin480Data, xVal: 2.0, measurement: measurement)
-        setChart(values: olin208Data, xVal: 3.0, measurement: measurement)
-        setChart(values: rock480Data, xVal: 4.0, measurement: measurement)
-        setChart(values: sears480Data, xVal: 5.0, measurement: measurement)
-        setChart(values: sears208Data, xVal: 6.0, measurement: measurement)
-        setChart(values: tomlinsonData, xVal: 7.0, measurement: measurement)
-        setChart(values: whiteData, xVal: 8.0, measurement: measurement)
-        setChart(values: wick480Data, xVal: 9.0, measurement: measurement)
-        setChart(values: wick208Data, xVal: 10.0, measurement: measurement)
-        setChart(values: yostData, xVal: 11.0, measurement: measurement)
-        setChart(values: olinSumData, xVal: 12.0, measurement: measurement)
-        setChart(values: wickSumData, xVal: 13.0, measurement: measurement)
-        setChart(values: searsSumData, xVal: 14.0, measurement: measurement)
+        setChart(values: glennanData, xVal: 0.0, measurement: measurement, label: "Glennan")
+        setChart(values: nordData, xVal: 1.0, measurement: measurement, label: "Nord")
+        setChart(values: olin480Data, xVal: 2.0, measurement: measurement, label: "Olin 480")
+        setChart(values: olin208Data, xVal: 3.0, measurement: measurement, label: "Olin 208")
+        setChart(values: rock480Data, xVal: 4.0, measurement: measurement, label: "Rock 480")
+        setChart(values: sears480Data, xVal: 5.0, measurement: measurement, label: "Sears 480")
+        setChart(values: sears208Data, xVal: 6.0, measurement: measurement, label: "Sears 208")
+        setChart(values: tomlinsonData, xVal: 7.0, measurement: measurement, label: "Tomlinson")
+        setChart(values: whiteData, xVal: 8.0, measurement: measurement, label: "White")
+        setChart(values: wick480Data, xVal: 9.0, measurement: measurement, label: "Wick 480")
+        setChart(values: wick208Data, xVal: 10.0, measurement: measurement, label: "Wick 208")
+        setChart(values: yostData, xVal: 11.0, measurement: measurement, label: "Yost")
+        setChart(values: olinSumData, xVal: 12.0, measurement: measurement, label: "Olin (Sum)")
+        setChart(values: wickSumData, xVal: 13.0, measurement: measurement, label: "Wick (Sum)")
+        setChart(values: searsSumData, xVal: 14.0, measurement: measurement, label: "Sears (Sum)")
     }
     
     func startDatePickerChanged(_ sender: UIDatePicker) {
@@ -174,16 +174,14 @@ class BarGraphViewController: UIViewController {
         measurementAvgButton.titleLabel?.textColor = UIColor.blue
         measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
         measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
-        barChartDataEntries = []
+        pieChartDataEntries = []
         resetChart()
-        let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
-        barChartDataSet.colors = ChartColorTemplates.colorful()
-        let barChartData = BarChartData(dataSet: barChartDataSet)
-        barChartData.setDrawValues(false)
-        barChartView.data = barChartData
-        barChartView.leftAxis.axisMinimum = 0
-        barChartView.leftAxis.axisMaximum = 200
-        self.barChartView.notifyDataSetChanged()
+        let pieChartDataSet = PieChartDataSet(values: pieChartDataEntries, label: "Electrical Energy Usage (kW)")
+        pieChartDataSet.colors = ChartColorTemplates.colorful()
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChartData.setDrawValues(false)
+        pieChartView.data = pieChartData
+        self.pieChartView.notifyDataSetChanged()
     }
     
     @IBAction func measurementTotalClicked(_ sender: UIButton) {
@@ -191,16 +189,14 @@ class BarGraphViewController: UIViewController {
         measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
         measurementTotalButton.titleLabel?.textColor = UIColor.blue
         measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
-        barChartDataEntries = []
+        pieChartDataEntries = []
         resetChart()
-        let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
-        barChartDataSet.colors = ChartColorTemplates.colorful()
-        let barChartData = BarChartData(dataSet: barChartDataSet)
-        barChartData.setDrawValues(false)
-        barChartView.data = barChartData
-        barChartView.leftAxis.axisMinimum = 0
-        barChartView.leftAxis.axisMaximum = 12000
-        self.barChartView.notifyDataSetChanged()
+        let pieChartDataSet = PieChartDataSet(values: pieChartDataEntries, label: "Electrical Energy Usage (kW)")
+        pieChartDataSet.colors = ChartColorTemplates.colorful()
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChartData.setDrawValues(false)
+        pieChartView.data = pieChartData
+        self.pieChartView.notifyDataSetChanged()
     }
     
     @IBAction func measurementPeakButton(_ sender: UIButton) {
@@ -208,16 +204,14 @@ class BarGraphViewController: UIViewController {
         measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
         measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
         measurementPeakButton.titleLabel?.textColor = UIColor.blue
-        barChartDataEntries = []
+        pieChartDataEntries = []
         resetChart()
-        let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
-        barChartDataSet.colors = ChartColorTemplates.colorful()
-        let barChartData = BarChartData(dataSet: barChartDataSet)
-        barChartData.setDrawValues(false)
-        barChartView.data = barChartData
-        barChartView.leftAxis.axisMinimum = 0
-        barChartView.leftAxis.axisMaximum = 300
-        self.barChartView.notifyDataSetChanged()
+        let pieChartDataSet = PieChartDataSet(values: pieChartDataEntries, label: "Electrical Energy Usage (kW)")
+        pieChartDataSet.colors = ChartColorTemplates.colorful()
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChartData.setDrawValues(false)
+        pieChartView.data = pieChartData
+        self.pieChartView.notifyDataSetChanged()
     }
     
     @IBAction func glennanButtonClicked(_ sender: UIButton) {
@@ -447,95 +441,92 @@ class BarGraphViewController: UIViewController {
     
     private func resetChart() {
         // reset the data entry array and x axis labels
-        barChartDataEntries = []
+        pieChartDataEntries = []
         var buildingNames : [String] = []
         var x = 0.0
         if glennanOn {
-            setChart(values: glennanData, xVal: x, measurement: currentMeasurement)
+            setChart(values: glennanData, xVal: x, measurement: currentMeasurement, label: "Glennan")
             x += 1
             buildingNames.append("Glennan")
         }
         if nordOn {
-            setChart(values: nordData, xVal: x, measurement: currentMeasurement)
+            setChart(values: nordData, xVal: x, measurement: currentMeasurement, label: "Nord")
             x += 1
             buildingNames.append("Nord")
         }
         if olin480On {
-            setChart(values: olin480Data, xVal: x, measurement: currentMeasurement)
+            setChart(values: olin480Data, xVal: x, measurement: currentMeasurement, label: "Olin 480")
             x += 1
             buildingNames.append("Olin 480")
         }
         if olin208On {
-            setChart(values: olin208Data, xVal: x, measurement: currentMeasurement)
+            setChart(values: olin208Data, xVal: x, measurement: currentMeasurement, label: "Olin 208")
             x += 1
             buildingNames.append("Olin 208")
         }
         if rock480On {
-            setChart(values: rock480Data, xVal: x, measurement: currentMeasurement)
+            setChart(values: rock480Data, xVal: x, measurement: currentMeasurement, label: "Rock 480")
             x += 1
             buildingNames.append("Rock 480")
         }
         if sears480On {
-            setChart(values: sears480Data, xVal: x, measurement: currentMeasurement)
+            setChart(values: sears480Data, xVal: x, measurement: currentMeasurement, label: "Sears 480")
             x += 1
             buildingNames.append("Sears 480")
         }
         if sears208On {
-            setChart(values: sears208Data, xVal: x, measurement: currentMeasurement)
+            setChart(values: sears208Data, xVal: x, measurement: currentMeasurement, label: "Sears 208")
             x += 1
             buildingNames.append("Sears 208")
         }
         if tomlinsonOn {
-            setChart(values: tomlinsonData, xVal: x, measurement: currentMeasurement)
+            setChart(values: tomlinsonData, xVal: x, measurement: currentMeasurement, label: "Tomlinson")
             x += 1
             buildingNames.append("Tomlinson")
         }
         if whiteOn {
-            setChart(values: whiteData, xVal: x, measurement: currentMeasurement)
+            setChart(values: whiteData, xVal: x, measurement: currentMeasurement, label: "White")
             x += 1
             buildingNames.append("White")
         }
         if wick208On {
-            setChart(values: wick208Data, xVal: x, measurement: currentMeasurement)
+            setChart(values: wick208Data, xVal: x, measurement: currentMeasurement, label: "Wick 208")
             x += 1
             buildingNames.append("Wick 208")
         }
         if wick480On {
-            setChart(values: wick480Data, xVal: x, measurement: currentMeasurement)
+            setChart(values: wick480Data, xVal: x, measurement: currentMeasurement, label: "Wick 480")
             x += 1
             buildingNames.append("Wick 480")
         }
         if yostOn {
-            setChart(values: yostData, xVal: x, measurement: currentMeasurement)
+            setChart(values: yostData, xVal: x, measurement: currentMeasurement, label: "Yost")
             x += 1
             buildingNames.append("Yost")
         }
         if olinSumOn {
-            setChart(values: olinSumData, xVal: x, measurement: currentMeasurement)
+            setChart(values: olinSumData, xVal: x, measurement: currentMeasurement, label: "Olin (Sum)")
             x += 1
             buildingNames.append("Olin (Sum)")
         }
         if searsSumOn {
-            setChart(values: searsSumData, xVal: x, measurement: currentMeasurement)
+            setChart(values: searsSumData, xVal: x, measurement: currentMeasurement, label: "Sears (Sum)")
             x += 1
             buildingNames.append("Sears (Sum)")
         }
         if wickSumOn {
-            setChart(values: wickSumData, xVal: x, measurement: currentMeasurement)
+            setChart(values: wickSumData, xVal: x, measurement: currentMeasurement, label: "Wick (Sum)")
             x += 1
             buildingNames.append("Wick (Sum)")
         }
-        barChartView.noDataText = "Must provide data"
-        let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
-        barChartDataSet.colors = ChartColorTemplates.colorful()
-        let barChartData = BarChartData(dataSet: barChartDataSet)
-        barChartData.setDrawValues(false)
-        barChartView.data = barChartData
-        barChartView.xAxis.labelPosition = .bottom
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: buildingNames)
-        barChartView.xAxis.granularity = 1
-        barChartView.backgroundColor = UIColor.white
-        barChartView.chartDescription?.text = ""
+        pieChartView.noDataText = "Must provide data"
+        let pieChartDataSet = PieChartDataSet(values: pieChartDataEntries, label: "Electrical Energy Usage (kW)")
+        pieChartDataSet.colors = ChartColorTemplates.colorful()
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChartData.setDrawValues(false)
+        pieChartView.data = pieChartData
+        pieChartView.backgroundColor = UIColor.white
+        pieChartView.chartDescription?.text = ""
     }
     
     override func viewDidLoad() {
@@ -563,21 +554,15 @@ class BarGraphViewController: UIViewController {
         // default is total
         setAllChartValues(measurement: .total)
         currentMeasurement = .total
-    
-        barChartView.noDataText = "Must provide data"
-        let barChartDataSet = BarChartDataSet(values: barChartDataEntries, label: "Electrical Energy Usage (kW)")
-        barChartDataSet.colors = ChartColorTemplates.colorful()
-        let barChartData = BarChartData(dataSet: barChartDataSet)
-        barChartData.setDrawValues(false)
-        barChartView.data = barChartData
-        barChartView.xAxis.labelPosition = .bottom
-        let buildingNames = ["Glennan", "Nord", "Olin 480", "Olin 208", "Rock 480", "Sears 480", "Sears 208", "Tomlinson", "White", "Wick 208", "Wick 480", "Yost", "Olin Sum", "Wick Sum", "Sears Sum"]
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: buildingNames)
-        barChartView.xAxis.granularity = 1
-        barChartView.backgroundColor = UIColor.white
-        barChartView.leftAxis.axisMinimum = 0
-        barChartView.leftAxis.axisMaximum = 12000
-        barChartView.chartDescription?.text = ""
+        
+        pieChartView.noDataText = "Must provide data"
+        let pieChartDataSet = PieChartDataSet(values: pieChartDataEntries, label: "Electrical Energy Usage (kW)")
+        pieChartDataSet.colors = ChartColorTemplates.colorful()
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChartData.setDrawValues(false)
+        pieChartView.data = pieChartData
+        pieChartView.backgroundColor = UIColor.white
+        pieChartView.chartDescription?.text = ""
         
     }
     
@@ -606,22 +591,22 @@ class BarGraphViewController: UIViewController {
                         dataEntries.append(Double(entry)!)
                     }
                     switch urlName {
-                        case "Glennan": self.glennanData.append(contentsOf: dataEntries)
-                        case "Nord": self.nordData.append(contentsOf: dataEntries)
-                        case "Olin_480": self.olin480Data.append(contentsOf: dataEntries)
-                        case "Olin_208": self.olin208Data.append(contentsOf: dataEntries)
-                        case "Rock_480": self.rock480Data.append(contentsOf: dataEntries)
-                        case "Sears_480": self.sears480Data.append(contentsOf: dataEntries)
-                        case "Sears_208": self.sears208Data.append(contentsOf: dataEntries)
-                        case "Tomlinson": self.tomlinsonData.append(contentsOf: dataEntries)
-                        case "White": self.whiteData.append(contentsOf: dataEntries)
-                        case "Wick_208": self.wick208Data.append(contentsOf: dataEntries)
-                        case "Wick_480": self.wick480Data.append(contentsOf: dataEntries)
-                        case "Yost": self.yostData.append(contentsOf: dataEntries)
-                        case "Olin_Sum": self.olinSumData.append(contentsOf: dataEntries)
-                        case "Wick_Sum": self.wickSumData.append(contentsOf: dataEntries)
-                        case "Sears_Sum": self.searsSumData.append(contentsOf: dataEntries)
-                        default: print("No data array matches this building")
+                    case "Glennan": self.glennanData.append(contentsOf: dataEntries)
+                    case "Nord": self.nordData.append(contentsOf: dataEntries)
+                    case "Olin_480": self.olin480Data.append(contentsOf: dataEntries)
+                    case "Olin_208": self.olin208Data.append(contentsOf: dataEntries)
+                    case "Rock_480": self.rock480Data.append(contentsOf: dataEntries)
+                    case "Sears_480": self.sears480Data.append(contentsOf: dataEntries)
+                    case "Sears_208": self.sears208Data.append(contentsOf: dataEntries)
+                    case "Tomlinson": self.tomlinsonData.append(contentsOf: dataEntries)
+                    case "White": self.whiteData.append(contentsOf: dataEntries)
+                    case "Wick_208": self.wick208Data.append(contentsOf: dataEntries)
+                    case "Wick_480": self.wick480Data.append(contentsOf: dataEntries)
+                    case "Yost": self.yostData.append(contentsOf: dataEntries)
+                    case "Olin_Sum": self.olinSumData.append(contentsOf: dataEntries)
+                    case "Wick_Sum": self.wickSumData.append(contentsOf: dataEntries)
+                    case "Sears_Sum": self.searsSumData.append(contentsOf: dataEntries)
+                    default: print("No data array matches this building")
                     }
                     semaphore.signal();
                     
@@ -640,7 +625,7 @@ class BarGraphViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // Set up button colors
         measurementAvgButton.titleLabel?.textColor = UIColor.lightGray
-     //   measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
+        //   measurementTotalButton.titleLabel?.textColor = UIColor.lightGray
         measurementPeakButton.titleLabel?.textColor = UIColor.lightGray
     }
     

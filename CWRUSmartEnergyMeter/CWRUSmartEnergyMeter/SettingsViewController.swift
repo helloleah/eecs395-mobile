@@ -28,4 +28,9 @@ class SettingsViewController: UITableViewController {
         UIApplication.shared.open(URL(string: "https://case.edu/sustainability/")! as URL)
     }
     
+    @IBAction func signOutButtonClicked(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut()
+        performSegue(withIdentifier: "settingsToSignIn", sender: self)
+    }
+    
 }
