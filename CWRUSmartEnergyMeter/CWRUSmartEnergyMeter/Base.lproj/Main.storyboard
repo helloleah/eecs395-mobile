@@ -123,7 +123,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Line Graph" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Line Graph" image="line-chart-4" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="endDateLabel" destination="ZfR-bx-0uE" id="RI1-is-yLT"/>
                         <outlet property="endDatePicker" destination="Ls2-O0-lK4" id="udW-WT-Oh6"/>
@@ -391,7 +391,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Bar Graph" image="second" id="y2a-o1-sXt"/>
+                    <tabBarItem key="tabBarItem" title="Bar Graph" image="844180b6382b58e413d2f5bbfd98a5a5_chart-graph-statistics-bar-graph-clipart-black-and-white_512-512" id="y2a-o1-sXt"/>
                     <connections>
                         <outlet property="barChartView" destination="0yC-1t-fWb" id="hOs-St-i24"/>
                         <outlet property="endDateLabel" destination="Whc-3u-kaT" id="dN3-yb-tM6"/>
@@ -694,7 +694,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pie Chart" image="first" id="QKA-85-cGx"/>
+                    <tabBarItem key="tabBarItem" title="Pie Chart" image="pie-chart-512" id="QKA-85-cGx"/>
                     <connections>
                         <outlet property="endDateLabel" destination="nf5-r5-4pW" id="OIS-kl-FHf"/>
                         <outlet property="endDatePicker" destination="VNG-2K-a43" id="RFa-U1-p7f"/>
@@ -878,7 +878,7 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Settings" image="second" selectedImage="second" id="8TQ-Vk-eae"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="account-settings" id="8TQ-Vk-eae"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="rZ6-1f-UI2" kind="show" identifier="settingsToSignIn" id="7OM-gu-c2x"/>
@@ -1006,8 +1006,10 @@ Google</string>
         </scene>
     </scenes>
     <resources>
+        <image name="844180b6382b58e413d2f5bbfd98a5a5_chart-graph-statistics-bar-graph-clipart-black-and-white_512-512" width="30" height="30"/>
+        <image name="account-settings" width="30" height="30"/>
         <image name="cwru-formal-blue-tag" width="530" height="125"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="line-chart-4" width="30" height="30"/>
+        <image name="pie-chart-512" width="30" height="30"/>
     </resources>
 </document>
